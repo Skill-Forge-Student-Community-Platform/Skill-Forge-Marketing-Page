@@ -1,9 +1,7 @@
-import Image from "next/image";
-// Update the import to use require
-const arrowRightSrc = require('../assets/images/arrow-right.svg').default;
+import ArrowRightIcon from "../assets/images/arrow-right.svg";
 
 const logos = [
-  {name: "ArrowRight", src: arrowRightSrc},
+  { name: "ArrowRight", Icon: ArrowRightIcon },
 ];
 
 export default function LogoTicker() {
@@ -13,13 +11,12 @@ export default function LogoTicker() {
           <h3 className="text-center text-white/50 text-xl"> Keep Tracking Your Progress with us </h3>
               <div>
                   <div>
-                    {logos.map((logo) => (
-                      <Image
-                        src={logo.src}
-                        key={logo.name}
-                        alt={logo.name}
-                        width={24}  // adjusted to more reasonable SVG icon size
-                        height={24} // adjusted to more reasonable SVG icon size
+                    {logos.map(({name, Icon}) => (
+                      <Icon
+                        key={name}
+                        width={24}
+                        height={24}
+                        className="text-white"
                       />
                     ))}
                   </div>

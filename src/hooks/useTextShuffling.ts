@@ -8,7 +8,7 @@ export const useTextShuffling = (finalText: string) => {
   const letterRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [isShuffling, setIsShuffling] = useState(false);
   const [letters, setLetters] = useState<string[]>(finalText.split(''));
-  const intervalHandles = useRef<number[]>([]);
+  const intervalHandles = useRef<NodeJS.Timeout[]>([]);
 
   const animateScale = (element: HTMLElement) => {
     gsap.fromTo(element,
@@ -35,7 +35,7 @@ export const useTextShuffling = (finalText: string) => {
     setIsShuffling(true);
 
     // Clear previous intervals
-    intervalHandles.current.forEach(handle => clearInterval(handle));
+    intervalHandles.current.forEach(handle => clearTimeout(handle));
     intervalHandles.current = [];
 
     // Initial scale animation
@@ -43,7 +43,7 @@ export const useTextShuffling = (finalText: string) => {
 
     // Setup shuffling for each letter
     finalText.split('').forEach((_, index) => {
-      const handle = setInterval(() => {
+      const handle = setTimeout(() => {
         if (!isShuffling) return;
         setLetters(prev => {
           const newLetters = [...prev];
@@ -57,7 +57,7 @@ export const useTextShuffling = (finalText: string) => {
 
     // Stop shuffling and reveal final text
     setTimeout(() => {
-      intervalHandles.current.forEach(handle => clearInterval(handle));
+      intervalHandles.current.forEach(handle => clearTimeout(handle));
       setLetters(finalText.split(''));
 
       gsap.to(containerRef.current, {
@@ -79,7 +79,7 @@ export const useTextShuffling = (finalText: string) => {
 
   useEffect(() => {
     return () => {
-      intervalHandles.current.forEach(handle => clearInterval(handle));
+      intervalHandles.current.forEach(handle => clearTimeout(handle));
     };
   }, []);
 
