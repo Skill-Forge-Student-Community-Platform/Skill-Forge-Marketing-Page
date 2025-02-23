@@ -3,12 +3,14 @@
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
+type TimeoutHandle = ReturnType<typeof setTimeout>;
+
 export const useTextShuffling = (finalText: string) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const letterRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [isShuffling, setIsShuffling] = useState(false);
   const [letters, setLetters] = useState<string[]>(finalText.split(''));
-  const intervalHandles = useRef<NodeJS.Timeout[]>([]);
+  const intervalHandles = useRef<TimeoutHandle[]>([]);
 
   const animateScale = (element: HTMLElement) => {
     gsap.fromTo(element,
@@ -50,13 +52,13 @@ export const useTextShuffling = (finalText: string) => {
           newLetters[index] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random() * 26)];
           return newLetters;
         });
-      }, 50);
+      }, 50) as TimeoutHandle;
 
       intervalHandles.current.push(handle);
     });
 
     // Stop shuffling and reveal final text
-    setTimeout(() => {
+    const finalHandle = setTimeout(() => {
       intervalHandles.current.forEach(handle => clearTimeout(handle));
       setLetters(finalText.split(''));
 
@@ -69,7 +71,9 @@ export const useTextShuffling = (finalText: string) => {
       const currentLetters = letterRefs.current.filter(ref => ref !== null) as HTMLSpanElement[];
       clearBlurEffect(currentLetters);
       setIsShuffling(false);
-    }, 1500);
+    }, 1500) as TimeoutHandle;
+
+    intervalHandles.current.push(finalHandle);
   };
 
   useEffect(() => {

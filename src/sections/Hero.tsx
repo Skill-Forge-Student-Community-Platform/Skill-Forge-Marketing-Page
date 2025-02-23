@@ -1,28 +1,27 @@
 'use client';
 
-
-
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useTextShuffling } from '../hooks/useTextShuffling';
 import Image from 'next/image';
 import designExample1Image from "../assets/images/design-example-1 1.png";
 import designExample2Image from "../assets/images/design-example-1 2.png";
 import Pointer from '../components/Pointer';
 
-
 export default function Hero() {
     const texts = ["SKILL-UP", "TEAM-UP", "LEVEL-UP"];
     const [currentIndex, setCurrentIndex] = useState(0);
     const { letters, shuffleText, isShuffling, containerRef, letterRefs } = useTextShuffling(texts[currentIndex]);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % texts.length);
-            shuffleText();
-        }, 3000); // Change text every 3 seconds
+    // Memoize the text rotation logic
+    const rotateText = useCallback(() => {
+        setCurrentIndex((prev) => (prev + 1) % texts.length);
+        shuffleText();
+    }, [shuffleText, texts.length]);
 
+    useEffect(() => {
+        const interval = setInterval(rotateText, 3000); // Change text every 3 seconds
         return () => clearInterval(interval);
-    }, [currentIndex]);
+    }, [rotateText]);
 
     return (
       <section className="py-14 overflow-x-clip ">
