@@ -39,7 +39,7 @@ export default function Hero() {
               />
             </div>
             <div className='absolute left-44 top-80  hidden lg:block'>
-              <Pointer name='Amaneth' />
+              <Pointer name='Dulitha' />
             </div>
             <div className='absolute right-80  hidden lg:block'>
               <Pointer name='Lakshan' color='red ' />
