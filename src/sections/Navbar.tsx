@@ -15,8 +15,10 @@ export default function Navbar() {
     return <section>
         <div className="container py-4 m-0 max-w-full">
           <div className="flex justify-between items-center">
-          <Image src={logo} alt="Skill Forge" height={40} width={40} />
-          <h1>Skill Forge</h1> {/* Logo replace later */}
+              <div className="flex items-center gap-1">
+              <Image src={logo} alt="Skill Forge" height={40} width={40} />
+              <h1>Skill Forge</h1> {/* Logo replace later */}
+              </div>
           <MenuIcon className="w-5 h-5 md:hidden "/>
           <nav className="hidden md:flex gap-6 text-white/75 items-center">
             {navLinks.map((link) => (
