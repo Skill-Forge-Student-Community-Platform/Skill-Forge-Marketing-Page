@@ -26,13 +26,14 @@ export default function Hero() {
     return (
       <section className="py-14 overflow-x-clip ">
           <div className=" container  relative">
-            <div className=' absolute -left-64 top-16 hidden lg:block'>
+            {/* use block to display them */}
+            <div className=' absolute -left-64 top-16 hidden lg:hidden'>
               <Image
                     src={designExample1Image}
                     alt="Movable Image"
               />
             </div>
-            <div className=' absolute -right-96 -top-16  hidden lg:block'>
+            <div className=' absolute -right-96 -top-16  hidden lg:hidden'>
               <Image
                     src={designExample2Image}
                     alt="Movable Image"

@@ -34,6 +34,7 @@ export default function LogoSideBar() {
                       alt={logo.name}
                       width={100}
                       height={40}
+                      className="text-white"
                   />
               ))}
             </div>
