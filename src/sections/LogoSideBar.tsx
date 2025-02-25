@@ -29,6 +29,10 @@ const logos = [
     { name: "📅 Event Management" },
     { name: "🎯 Competitions" },
     { name: "💡 Recommendations" },
+    { name: "🔔 Notifications" },
+    { name: "📊 Analytics" },
+    { name: "🔗 Integrations" },
+    { name: "🎨 Customization" },
 ];
 
 
