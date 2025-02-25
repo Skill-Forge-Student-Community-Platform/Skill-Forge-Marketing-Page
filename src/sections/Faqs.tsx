@@ -16,7 +16,7 @@
 //         answer: "Yes! Layers includes a robust offline mode. Changes sync automatically when you're back online, so you can keep working anywhere.",
 //     },
 //     {
-//         question: "How does Layers handle collaboration?",
+//         question: "How does skill Forge handle collaboration?",
 //         answer: "Layers is built for collaboration. You can invite team members to your projects, share feedback, and work together in real-time.",
 //     },
 // ];
