@@ -21,7 +21,7 @@ export default function Features() {
       <section className="py24">
         <div className="container">
           <div className="flex justify-center  ">
-          <h1>whats on the table</h1>
+          <h1 className="text-xl font-semibold">what&apos;s on the table</h1>
           </div>
           <h2 className="text-6xl font-medium text-center mt-6 max-w-2xl mx-auto">where experience step over <span className="text-blue-500">knowledge </span></h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3  gap-8">
@@ -64,7 +64,7 @@ export default function Features() {
             <FeatureCard
             title="Portfolio builder"
             description="Secure your spot with visually appealing Portfolio including a customizable industry standard cv"
-            className="md:col-span-2 col-start-2 lg:col-span-1 lg:col-start-auto"
+            className="md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto"
             >
               <div className="aspect-video flex items-center justify-center">
                 <Image src={portfolio

@@ -48,7 +48,7 @@ export default function Hero() {
             <div className="flex justify-center ">
                 <div className=" inline-flex py-1 px-3 bg-gradient-to-r from-violet-800 to-blue-500  rounded-full text-neutral-950 font-semibold ">✨ Forge Your Skills, Define Your future </div>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-6xl font-medium text-center mt-6">Elevate Your Skills. Expand Your Network. Excel Together.</h1>
+            <h1 className="text-4xl md:text-6xl lg:text-6xl font-medium text-center mt-6">Elevate Your Skills. Expand Your Network. Excel Together.</h1>
             <div className="flex items-center justify-center text-5xl mt-16 mb-16 font-medium">
                 <div className=" items-center justify-center font-torwelten">
                     <div
