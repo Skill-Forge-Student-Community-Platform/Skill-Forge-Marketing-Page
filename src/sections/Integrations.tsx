@@ -8,5 +8,7 @@
 // ];
 
 export default function Integrations() {
-    return <div>Integrations</div>;
+    return (
+      <div> </div>
+    );
 }

@@ -1,4 +1,5 @@
 import logo from "@/src/assets/images/Skill Forge logo .png";
+import logoName from "@/src/assets/images/Skill-forge-logo-d.svg";
 import Image from "next/image";
 // import MenuIcon from "@/src/assets/images/menu.svg";
 import Button from "@/src/components/Button";
@@ -18,7 +19,8 @@ export default function Navbar() {
           <div className="grid grid-cols-2 lg:grid-cols-3 border border-white/15 rounded-full md:p-1 lg:p-2 items-center">
               <div className="flex items-center gap-1">
               <Image src={logo} alt="Skill Forge" className="h-12   w-auto "/>
-              <h1>Skill Forge</h1> {/* Logo replace later */}
+              <Image src={logoName} alt="Skill Forge" className="h-3 w-auto "/>
+
               </div>
               <div className="lg:flex justify-center items-center hidden ">
               <nav className="md:flex gap-6 font-medium text-white/75 items-center">
